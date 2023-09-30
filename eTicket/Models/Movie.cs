@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using eTicket.Data;
+using System.ComponentModel.DataAnnotations;
 
 namespace eTicket.Models
 {
@@ -12,5 +13,6 @@ namespace eTicket.Models
         public string ImageURL { get; set; }
         public DateTime StarDate { get; set; }
         public DateTime EndDate { get; set; }
+        public MovieCategory MovieCategory { get; set; }
     }
 }
