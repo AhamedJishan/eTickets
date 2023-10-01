@@ -4,12 +4,13 @@
     {
         Action = 1,
         Adventure,
+        Cartoon,
         Comedy,
         Documentary,
         Drama,
         Horror,
         Mystery,
         Romance,
-        Thriller,
+        Thriller
     }
 }
