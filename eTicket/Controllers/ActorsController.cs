@@ -1,6 +1,7 @@
 ﻿using eTicket.Data;
 using eTicket.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Collections;
 
 namespace eTicket.Controllers
@@ -12,10 +13,10 @@ namespace eTicket.Controllers
         {
             _db = db;
         }
-        public IActionResult Index()
-        {
-            var actors = _db.Actors.ToList();
-            return View(actors);
-        }
-    }
+		public IActionResult Index()
+		{
+			var data = _db.Actors.ToList();
+			return View(data);
+		}
+	}
 }

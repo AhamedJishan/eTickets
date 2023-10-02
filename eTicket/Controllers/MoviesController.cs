@@ -11,10 +11,10 @@ namespace eTicket.Controllers
         {
             _db = db;
         }
-        public async Task<IActionResult> Index()
-        {
-            var allProducers = await _db.Movies.ToListAsync();
-            return View();
-        }
-    }
+		public async Task<IActionResult> Index()
+		{
+			var allMovies = await _db.Movies.Include(n=>n.Cinema).OrderBy(n=>n.Name).ToListAsync();
+			return View(allMovies);
+		}
+	}
 }

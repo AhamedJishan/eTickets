@@ -1,5 +1,6 @@
 ﻿using eTicket.Data.Enums;
 using eTicket.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace eTicket.Data
 {
@@ -16,6 +17,7 @@ namespace eTicket.Data
                 //Cinema
                 if (!context.Cinemas.Any())
                 {
+                    context.Database.ExecuteSqlRaw("DBCC CHECKIDENT('Cinemas', RESEED, 0)");
                     context.Cinemas.AddRange(new List<Cinema>()
                     {
                         new Cinema()
@@ -54,7 +56,8 @@ namespace eTicket.Data
                 //Actors
                 if (!context.Actors.Any())
                 {
-                    context.Actors.AddRange(new List<Actor>()
+					context.Database.ExecuteSqlRaw("DBCC CHECKIDENT('Actors', RESEED, 0)");
+					context.Actors.AddRange(new List<Actor>()
                     {
                         new Actor()
                         {
@@ -93,7 +96,8 @@ namespace eTicket.Data
                 //Producers
                 if (!context.Producers.Any())
                 {
-                    context.Producers.AddRange(new List<Producer>()
+					context.Database.ExecuteSqlRaw("DBCC CHECKIDENT('Producers', RESEED, 0)");
+					context.Producers.AddRange(new List<Producer>()
                     {
                         new Producer()
                         {
@@ -132,7 +136,8 @@ namespace eTicket.Data
                 //Movies
                 if (!context.Movies.Any())
                 {
-                    context.Movies.AddRange(new List<Movie>()
+					context.Database.ExecuteSqlRaw("DBCC CHECKIDENT('Movies', RESEED, 0)");
+					context.Movies.AddRange(new List<Movie>()
                     {
                         new Movie()
                         {
@@ -212,7 +217,7 @@ namespace eTicket.Data
                 //Actors & Movies
                 if (!context.Actors_Movies.Any())
                 {
-                    context.Actors_Movies.AddRange(new List<Actor_Movie>()
+					context.Actors_Movies.AddRange(new List<Actor_Movie>()
                     {
                         new Actor_Movie()
                         {
