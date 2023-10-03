@@ -1,4 +1,5 @@
 using eTicket.Data;
+using eTicket.Data.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace eTicket
@@ -12,6 +13,10 @@ namespace eTicket
             // Add services to the container.
             builder.Services.AddDbContext<AppDbContext>(options=>options.UseSqlServer(
                 builder.Configuration.GetConnectionString("DefaultConnection")));
+
+            // Services Configurations
+            builder.Services.AddScoped<IActorsService, ActorsService>();
+
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
