@@ -1,5 +1,6 @@
 ﻿using eTicket.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 
 namespace eTicket.Data.Services
 {
@@ -14,7 +15,8 @@ namespace eTicket.Data.Services
 
 		void IActorsService.AddActor(Actor actor)
 		{
-			throw new NotImplementedException();
+			_db.Actors.Add(actor);
+			_db.SaveChanges();
 		}
 
 		Actor IActorsService.GetActor(int id)
