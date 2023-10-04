@@ -1,45 +1,40 @@
 ﻿@model Actor
 
 @{
-	ViewData["Title"] = "Add new Actor";
+	ViewData["Title"] = "Actor Details";
 }
 
 <div class="row text">
 	<div class="col-md-8 offset-2">
 		<p>
-			<h1>Add a New Actor</h1>
+			<h1>Details of @Model.FullName</h1>
 		</p>
-		<div class ="col-md-8 offset-2">
-
-			<form asp-action="Create">
-				<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+		<div class="col-md-8 offset-2">
 
 				<div class="text-center">
 					<img id="ProfilePicturePreview" class="border-info rounded-circle" style="max-width:150px" />
 				</div>
 				<div>
 					<label asp-for="ProfilePictureURL" class="control-label"></label>
-					<input asp-for="ProfilePictureURL" class="form-control" />
+					<input asp-for="ProfilePictureURL" class="form-control" readonly/>
 					<span asp-validation-for="ProfilePictureURL" class="text-danger"></span>
 				</div>
 				<div>
 					<label asp-for="FullName" class="control-label"></label>
-					<input asp-for="FullName" class="form-control" />
+				<input asp-for="FullName" class="form-control" readonly />
 					<span asp-validation-for="FullName" class="text-danger"></span>
 				</div>
 				<div>
 					<label asp-for="Bio" class="control-label"></label>
-					<input asp-for="Bio" class="form-control" />
+				<input asp-for="Bio" class="form-control" readonly />
 					<span asp-validation-for="Bio" class="text-danger"></span>
 				</div>
 
 				<div class="pt-3">
-					<input type="submit" value="Create" class="btn btn-outline-success float-end" />
+					<a class="btn btn-outline-success float-end" asp-action="Details" asp-route-id="@Model.Id">Edit</a>
 					<a class="btn btn-outline-secondary" asp-action="Index">Show All</a>
 				</div>
-			</form>
 
-			
 		</div>
 	</div>
 </div>
